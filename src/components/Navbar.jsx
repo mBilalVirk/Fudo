@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../src/assets/logo.png";
 import "remixicon/fonts/remixicon.css";
+
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header>
       <nav>
         <div className="nav_header">
           <div className="nav_logo">
-            <a href="" className="logo">
+            <a href="/" className="logo">
               <img src={Logo} alt="logo" />
               <span>Fudo</span>
             </a>
           </div>
-          <div className="nav__menu__btn" id="menu_btn">
-            <i className="ri-menu-line"></i>
+          <div className="nav__menu__btn" onClick={handleMenuToggle}>
+            <i className={isMenuOpen ? "ri-close-line" : "ri-menu-line"}></i>
           </div>
         </div>
-        <ul className="nav__links" id="nav__links">
+        <ul
+          className={`nav__links ${isMenuOpen ? "open" : ""}`}
+          onClick={handleLinkClick}
+        >
           <li>
             <a href="#whyfudo">Why Fudo</a>
           </li>
@@ -34,7 +48,7 @@ function Navbar() {
               <span>
                 <i className="ri-login-box-line"></i>
               </span>
-              login
+              Login
             </button>
           </li>
         </ul>
@@ -43,7 +57,7 @@ function Navbar() {
             <span>
               <i className="ri-login-box-line"></i>
             </span>
-            login
+            Login
           </button>
         </div>
       </nav>
