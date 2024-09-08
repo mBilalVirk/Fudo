@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../src/assets/logo.png";
+import Header from "../../src/assets/header.png";
+import DeliveryBike from "../../src/assets/delivery-bike.png";
 import "remixicon/fonts/remixicon.css";
 
 function Navbar() {
@@ -61,6 +63,33 @@ function Navbar() {
           </button>
         </div>
       </nav>
+      <div className="section__container header__container" id="header">
+        <div className="header__image">
+          <img src={Header} alt="header" />
+        </div>
+        <div className="header__content">
+          <div className="header__tag">
+            More than Faster
+            <img src={DeliveryBike} alt="Delivery-Bike" srcset="" />
+          </div>
+          <h1>
+            Be The Fastest In Delivering Your <span>Food</span>
+          </h1>
+          <p className="section__description">
+            Our job is to filling your tummy with delicious food and with fast
+            and free delivery.
+          </p>
+          <div className="header__btns">
+            <button class="btn">Get Started</button>
+            <a href="#">
+              <span>
+                <i className="ri-play-fill"></i>
+              </span>
+              Watch Video
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
